@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+                  <!-- explicit form  view definition -->
+    <record id="project_task_edit_form_inherit" model="ir.ui.view">
+        <field name="name">task</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="exam"/>
+            </field>
+            <xpath expr="//page[@name='extra_info']" position="after">
+             <page name="others" string="Others">
+                 <group>
+                     <field name="name_partner"/>
+                    <field name="gender"/>
+                 </group>
+
+             </page>
+          </xpath>
+        </field>
+    </record>
+
+    </data>
+
+</odoo>

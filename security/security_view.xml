@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<odoo>
+        <data>
+           <!-- define access group category -->
+           <record id="exam_management_access_categ" model="ir.module.category">
+           		<field name="name">Exam Management</field>
+           </record>
+           
+           <!-- group of general -->
+           <record id="general_access_group" model="res.groups">
+               <field name="name">General</field>
+               <field name="category_id" ref="exam_management_access_categ"/>
+           </record>
+<!--            Employee -->
+           <record id="employee_access_group" model="res.groups">
+               <field name="name">Employee</field>
+               <field name="category_id" ref="exam_management_access_categ"/>
+               <field name="implied_ids" eval="[(4,ref('general_access_group'))]"/>
+           </record>
+           <!-- group of manager -->
+           <record id="manager_access_group" model="res.groups">
+               <field name="name">Manager</field>
+               <field name="category_id" ref="exam_management_access_categ"/>
+               <field name="implied_ids" eval="[(4,ref('general_access_group','employee_access_group'))]"/>
+           </record>
+        </data>
+	</odoo>

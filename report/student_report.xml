@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+       
+		<!-- Report Definition, registration -->
+		<report
+			id="exam_report"
+            string="Exam Information"
+            model="exam.exam"
+            report_type="qweb-pdf"
+            name="exam__your__name.exam_template"
+		/>
+
+    </data>
+</odoo>

@@ -1,0 +1,125 @@
+<odoo>
+
+<!--   action of menu   -->
+    <record id='exam_action' model='ir.actions.act_window'>
+        <field name="name">Exam</field>
+        <field name="res_model">exam.exam</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,calendar</field>
+<!--        <field name="domain">[('gender','=','male')]</field>-->
+<!--        <field name="context">{'search_default_by_gender_male':1, 'default_name': 'Mohammed'}</field>-->
+    </record>
+
+
+
+    <menuitem name="Exam Management" id="exam_base_menu" />
+    <menuitem name="Exam Management" id="main_exam_menu" parent="exam_base_menu"/>
+    <menuitem name="Exam" id="exam_menu" action="exam_action" parent="main_exam_menu"/>
+<!--    <menuitem name="Student Female" id="student_female_menu" action="student_student_female_action" parent="main_student_menu"/>-->
+<!--    custom form view -->
+    <record id="student_male_view_form" model="ir.ui.view">
+        <field name="name">Exam</field>
+        <field name="model">exam.exam</field>
+        <field name="arch" type="xml">
+           					<form string="Exam Information">
+						<sheet>
+                            <header>
+                            	<button name="solve" states='created' type="object" string="Solved" class="oe_highlight"/>
+								<button name="back" states='solved' type="object"  string="Back" class="oe_highlight"/>
+								<button name="finish" states='solved' type="object"  string="Finished" class="oe_highlight"/>
+                            	<button name="solve_again" states='finished' type="object"  string="Back Solved" class="oe_highlight"/>
+<!--                            	<button name="first_first" states='first_register' type="object"  string="First Year Register" class="oe_highlight"/>-->
+<!--                            	<button name="second_third" states='second_register' type="object"  string="Third Year Register" class="oe_highlight"/>-->
+<!--                            	<button name="second_second" states='second_register'  type="object" string="Second Year Register" class="oe_highlight"/>-->
+<!--                            	<button name="third_fourth" states='third_register'  type="object" string="Fourth Year Register" class="oe_highlight"/>-->
+<!--                            	<button name="third_third" states='third_register'  type="object" string="Third Year Register" class="oe_highlight"/>-->
+<!--                           		<button name="fourth_fourth" states='fourth_register' type="object"  string="Fourth Year Register" class="oe_highlight"/>-->
+<!--                            	<button name="fourth_alumni" states='fourth_register' type="object"  string="Alumni" class="oe_highlight"/>-->
+
+<!--                                	<button name="back" states='med_interview,acad_interview,first_register,second_register,third_register,fourth_register,alumni,dismiss' string="Back Request" type="object" class="oe_highlight"-->
+<!--                                    groups="student_test.manager_access_group" />-->
+<!--								<button name="dismiss" states='draft,med_interview,acad_interview,first_register,second_register,third_register,fourth_register' type="object"  string="Dismiss" class="oe_highlight"-->
+<!--                                groups="student_test.manager_access_group" />-->
+<!--                            	<button name="set_student_sequence" type="object" string="Generate Seat No." class="oe_highlight oe_inline"/>-->
+<!--      							<button name="test_x2Many" type="object" string="Test x2Many" class="oe_highlight oe_inline"/>-->
+
+
+         						<field name="state" widget="statusbar" />
+							</header>
+							<group colspan="4" col="2">
+								<br/>
+										<for string="Employee"/>
+										<field name="name" placeholder="Enter employee"/>
+										<for string="Name Length"/>
+                                		<field name="exam_length" />
+							</group>
+                            <group colspan="4" col="4">
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="marks"/>
+                                <field name="exam_num" />
+                            </group>
+
+                            		<field name="exam_ids">
+                            			<tree editable="top">
+                            				<field name="name"/>
+<!--                                            <field name="serial" />-->
+                                        </tree>
+                                        <form>
+                                         	<group>
+                                         		<field name="name"/>
+<!--                                         		<field name="serial"/>-->
+                                             </group>
+                                        </form>
+                                    </field>
+
+                    </sheet>
+
+					</form>
+
+        </field>
+    </record>
+<!--&lt;!&ndash;    custom tree (list) &ndash;&gt;-->
+    <record id="exam_view_tree" model="ir.ui.view">
+    <field name="name">exam Tree</field>
+    <field name="model">exam.exam</field>
+        <field name="arch" type="xml">
+            <tree>
+                                <field name="name"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="marks"/>
+            </tree>
+        </field>
+    </record>
+
+        	<!-- Calendar View of Student -->
+			<record id="exam_calendar" model="ir.ui.view" >
+				<field name="name">exam.calendar</field>
+				<field name="model">exam.exam</field>
+				<field name="arch" type="xml">
+					<calendar string="Exam" date_start="start_date" date_stop="end_date" color="name">
+						<field name="name"/>
+					</calendar>
+				</field>
+			</record>
+
+<!--    custom Search -->
+    <record id="exam_view_search" model="ir.ui.view">
+    <field name="name">Exam</field>
+    <field name="model">exam.exam</field>
+        <field name="arch" type="xml">
+            <search string="exam">
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="marks"/>
+					</search>
+        </field>
+    </record>
+
+
+
+
+
+</odoo>

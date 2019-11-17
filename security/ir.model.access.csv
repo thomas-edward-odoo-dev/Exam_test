@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_general_exam_id,access_general_exam,model_exam_exam,general_access_group,1,0,0,0
+access_employee_exam_id,access_employee_exam,model_exam_exam,employee_access_group,1,1,0,0
+access_manager_exam_id,access_man_exam,model_exam_exam,manager_access_group,1,1,1,1
+access_general_exam_type_id,access_general_exam_type,model_exam_type,general_access_group,1,0,0,0
+access_employee_exam_type_id,access_employee_exam_type,model_exam_type,employee_access_group,1,1,0,0
+access_manager_exam_type_id,access_man_exam_type,model_exam_type,manager_access_group,1,1,1,1
+

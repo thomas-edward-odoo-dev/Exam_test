@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <!-- exam type -->
+           <record id="object0" model="exam.type">
+             <field name="name">Object 0</field>
+           </record>
+        <!--  -->
+           <record id="object1" model="exam.type">
+             <field name="name">Object 1</field>
+           </record>
+        <!--  -->
+           <record id="object2" model="exam.type">
+             <field name="name">Object 2</field>
+           </record>
+
+
+
+                <record model="hr.employee" id="employee">
+            <field name="name">Thomas Thomas</field>
+        </record>
+
+<!--        <record id="demo_exam_1" model="exam">-->
+<!--            <field name="name" eval="[(4, ref('employee'))]" />-->
+<!--            <field name="exam_num">12</field>-->
+<!--            &lt;!&ndash;field name="start_date">22/06/2019</field>&ndash;&gt;-->
+<!--             <field name="end_date">09/15/2019</field>-->
+<!--            <field name="marks">90</field>-->
+<!--        </record>-->
+
+
+        <!-- exam exam  -->
+        <!--   <record id="object3" model="exam__your__name.exam__your__name"> -->
+        <!--     <field name="name">Object 3</field> -->
+        <!--     <field name="value">30</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object4" model="exam__your__name.exam__your__name"> -->
+        <!--     <field name="name">Object 4</field> -->
+        <!--     <field name="value">40</field> -->
+        <!--   </record> -->
+        <!--  -->
+    </data>
+</odoo>
